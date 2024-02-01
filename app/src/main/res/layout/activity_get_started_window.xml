@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GetStartedWindow"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/app_name_txt"
+        android:layout_marginTop="350dp"
+        android:text="@string/app_name"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="40dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_food"
+        android:layout_below="@id/app_name_txt"
+        android:layout_marginTop="50dp"
+        android:text="Food"
+        android:textColor="@color/white"
+        android:textSize="30dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/dot1"
+        android:layout_below="@id/app_name_txt"
+        android:layout_marginTop="17dp"
+        android:text="."
+        android:layout_toRightOf="@id/txt_food"
+        android:layout_marginLeft="7dp"
+        android:textColor="@color/PrimaryColor"
+        android:textSize="50dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_instamart"
+        android:layout_marginTop="50dp"
+        android:layout_toRightOf="@id/dot1"
+        android:layout_below="@id/app_name_txt"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="5dp"
+        android:text="Instamart"
+        android:textColor="@color/white"
+        android:textSize="30dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:id="@+id/dot2"
+        android:layout_below="@id/app_name_txt"
+        android:layout_marginTop="17dp"
+        android:text="."
+        android:layout_toRightOf="@id/txt_instamart"
+        android:layout_marginLeft="3dp"
+        android:textColor="@color/PrimaryColor"
+        android:textSize="50dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_dineout"
+        android:layout_marginTop="50dp"
+        android:layout_toRightOf="@id/txt_instamart"
+        android:layout_below="@id/app_name_txt"
+        android:text="Dineout"
+        android:textColor="@color/white"
+        android:textSize="30dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_onFocusTxtDisplay"
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/txt_food"
+        android:textColor="@color/white"
+        android:textSize="30dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="30dp"
+        android:layout_below="@id/txt_onFocusTxtDisplay"
+        android:layout_marginTop="40dp"
+        android:background="@color/PrimaryColor"
+        android:hint="Get started"
+        android:textSize="20dp"
+        android:textColorHint="@color/white"
+        android:textStyle="bold" />
+
+</RelativeLayout>
