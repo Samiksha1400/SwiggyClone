@@ -3,9 +3,11 @@ package com.example.swiggyclone;
 import androidx.annotation.ColorRes;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.VideoView;
 
@@ -36,6 +38,11 @@ public class GetStartedWindow extends AppCompatActivity
             }
         });
 
+    }
+
+    public void getStarted(View view)
+    {
+        startActivity(new Intent(GetStartedWindow.this, MobileNoVerification.class));
     }
 
     @Override
