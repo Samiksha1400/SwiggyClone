@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:background="@color/white"
+    tools:context=".PersonalDetails">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_title"
+        android:layout_marginTop="30dp"
+        android:text="Help us get to know you"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="33dp"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_title"
+        android:layout_marginTop="50dp"
+        android:hint="Name"
+        app:endIconMode="clear_text"
+        app:endIconTint="@color/PrimaryColor"
+        app:startIconDrawable="@drawable/baseline_person_24"
+        app:startIconTint="@color/PrimaryColor">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:textColor="@color/black"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/name"
+        android:layout_marginTop="30dp"
+        android:hint="E-mail"
+        app:endIconMode="clear_text"
+        app:endIconTint="@color/PrimaryColor"
+        app:placeholderText="Ex: abc@cdf.com (Optional)"
+        app:startIconDrawable="@drawable/baseline_email_24"
+        app:startIconTint="@color/PrimaryColor">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textWebEmailAddress"
+            android:textColor="@color/black"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:id="@+id/btn_confirm_details"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/box_background"
+        android:hint="Confirm Details"
+        android:textSize="20dp"
+        android:textColorHint="@color/white"
+        android:textStyle="bold"
+        android:onClick="confirmDetails"/>
+</RelativeLayout>

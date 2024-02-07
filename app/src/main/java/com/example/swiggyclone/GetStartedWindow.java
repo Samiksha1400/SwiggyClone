@@ -42,7 +42,7 @@ public class GetStartedWindow extends AppCompatActivity
 
     public void getStarted(View view)
     {
-        startActivity(new Intent(GetStartedWindow.this, MobileNoVerification.class));
+        startActivity(new Intent(GetStartedWindow.this, PersonalDetails.class));
     }
 
     @Override
