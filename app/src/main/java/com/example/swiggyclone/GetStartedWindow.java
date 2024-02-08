@@ -4,10 +4,14 @@ import androidx.annotation.ColorRes;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.VideoView;
 
@@ -20,11 +24,13 @@ public class GetStartedWindow extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
         setContentView(R.layout.activity_get_started_window);
         bgvideo = findViewById(R.id.bgvideo);
         txt_food = findViewById(R.id.txt_food);
         txt_instamart = findViewById(R.id.txt_instamart);
         txt_dineout = findViewById(R.id.txt_dineout);
+
 
         //Background Video
         String path = "android.resource://com.example.swiggyclone/"+R.raw.foodvideo;
