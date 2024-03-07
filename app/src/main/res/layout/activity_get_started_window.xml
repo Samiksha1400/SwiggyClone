@@ -34,6 +34,7 @@
         android:id="@+id/txt_food"
         android:layout_above="@id/txt_onFocusTxtDisplay"
         android:text="Food"
+        android:imeOptions="actionNext"
         android:textSize="30dp"/>
 
     <TextView
@@ -52,6 +53,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/txt_instamart"
+        android:imeOptions="actionNext"
         android:layout_toRightOf="@id/dot1"
         android:layout_above="@id/txt_onFocusTxtDisplay"
         android:layout_marginLeft="5dp"
@@ -79,6 +81,7 @@
         android:layout_marginLeft="5dp"
         android:layout_marginEnd="10dp"
         android:layout_toRightOf="@id/dot2"
+        android:imeOptions="actionNext"
         android:text="Dineout"
         android:textSize="30dp" />
 

@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".HomeFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:id="@+id/frameLayoutTop">
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/grid_layout"
+            android:columnCount="2"
+            android:rowCount="2">
+
+            <androidx.cardview.widget.CardView
+                android:layout_height="0dp"
+                android:layout_width="0dp"
+                android:id="@+id/cardviewFood"
+                app:cardCornerRadius="25dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="10dp"
+                android:elevation="0dp">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:padding="10dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/cardTextFoodDelivery"
+                        android:text="FOOD DELIVERY"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textSize="20sp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/cardTextDescription1"
+                        android:layout_below="@id/cardTextFoodDelivery"
+                        android:text="FROM RESTAURANTS"
+                        android:textColor="@color/Grey"
+                        android:textSize="15sp"/>
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:id="@+id/foodImage1"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/food_icon"
+                        />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_height="0dp"
+                android:layout_width="0dp"
+                android:id="@+id/cardviewInstamart"
+                app:cardCornerRadius="25dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="10dp"
+                android:elevation="0dp">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:padding="10dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/cardTextInstamart"
+                        android:text="INSTAMART"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textSize="20sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/cardTextDescription2"
+                        android:layout_below="@id/cardTextInstamart"
+                        android:text="INSTANT GROCERY"
+                        android:textColor="@color/Grey"
+                        android:textSize="15sp"/>
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:id="@+id/foodImage2"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/basket_instamart" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_height="0dp"
+                android:layout_width="0dp"
+                android:id="@+id/cardviewDineout"
+                app:cardCornerRadius="25dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="10dp"
+                android:elevation="0dp">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:padding="10dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/cardTextDineout"
+                        android:text="DINEOUT"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textSize="20sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/cardTextDescription3"
+                        android:layout_below="@id/cardTextDineout"
+                        android:text="SPECIAL OFFER FOR YOU"
+                        android:textColor="@color/Grey"
+                        android:textSize="15sp"/>
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:id="@+id/foodImage3"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/dinner"/>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_height="0dp"
+                android:layout_width="0dp"
+                android:id="@+id/cardviewGenie"
+                app:cardCornerRadius="25dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="10dp"
+                android:elevation="0dp">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:padding="10sp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/cardTextGenie"
+                        android:text="GENIE"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textSize="20sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/cardTextDescription4"
+                        android:layout_below="@id/cardTextGenie"
+                        android:text="PICK-UP &amp; DROP"
+                        android:textColor="@color/Grey"
+                        android:textSize="15sp"/>
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:id="@+id/foodImage4"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/courierbox"/>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+        </GridLayout>
+    </FrameLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textview1"
+        android:layout_below="@id/frameLayoutTop"
+        android:layout_centerHorizontal="true"
+        android:text="Featured For You"
+        android:drawableStart="@drawable/baseline_grass_24"
+        android:drawableEnd="@drawable/baseline_grass_24"
+        android:textAllCaps="true"
+        android:fontFamily="serif-monospace"
+        android:padding="20dp"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+
+    <ViewFlipper
+        android:id="@+id/image_slider"
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        android:layout_below="@id/textview1"
+        android:autoStart="true"
+        android:contextClickable="false"
+        android:flipInterval="2000"
+        android:inAnimation="@android:anim/slide_in_left"
+        android:outAnimation="@android:anim/slide_out_right">
+
+        <ImageView
+            android:id="@+id/autoImageSlider1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/homeslide1" />
+
+        <ImageView
+            android:id="@+id/autoImageSlider2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/homeslide2" />
+
+        <ImageView
+            android:id="@+id/autoImageSlider3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/homeslide3" />
+    </ViewFlipper>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/textview2"
+        android:layout_below="@id/image_slider"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="Live It UP!"
+        android:textColor="@color/black"
+        android:layout_marginBottom="50dp"
+        android:textSize="80sp"
+        android:textStyle="bold"/>
+</RelativeLayout>

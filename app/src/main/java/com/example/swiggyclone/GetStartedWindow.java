@@ -9,6 +9,8 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -18,7 +20,7 @@ import android.widget.VideoView;
 public class GetStartedWindow extends AppCompatActivity
 {
     VideoView bgvideo;
-    TextView txt_food,txt_instamart,txt_dineout;
+    TextView txt_food,txt_instamart,txt_dineout,txt_onFocusTxtDisplay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -30,6 +32,7 @@ public class GetStartedWindow extends AppCompatActivity
         txt_food = findViewById(R.id.txt_food);
         txt_instamart = findViewById(R.id.txt_instamart);
         txt_dineout = findViewById(R.id.txt_dineout);
+        txt_onFocusTxtDisplay = findViewById(R.id.txt_onFocusTxtDisplay);
 
 
         //Background Video
@@ -44,11 +47,70 @@ public class GetStartedWindow extends AppCompatActivity
             }
         });
 
+        //moveToNext();
+
     }
+
+    /*private void moveToNext()
+    {
+        txt_food.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2)
+            {
+                txt_food.setTextColor(Color.parseColor("#FFFFFFFF"));
+                txt_onFocusTxtDisplay.setText("Order From Top Restaurants");
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                txt_instamart.requestFocus();
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+            }
+        });
+
+        txt_instamart.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2)
+            {
+                txt_instamart.setTextColor(Color.parseColor("#FFFFFFFF"));
+                txt_onFocusTxtDisplay.setText("Order From Top Restaurants");
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                txt_dineout.requestFocus();
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+            }
+        });
+
+        txt_dineout.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2)
+            {
+                txt_dineout.setTextColor(Color.parseColor("#FFFFFFFF"));
+                txt_onFocusTxtDisplay.setText("Order From Top Restaurants");
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                txt_food.requestFocus();
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+            }
+        });
+    }*/
 
     public void getStarted(View view)
     {
-        startActivity(new Intent(GetStartedWindow.this, PersonalDetails.class));
+        startActivity(new Intent(GetStartedWindow.this, Homepage.class));
     }
 
     @Override

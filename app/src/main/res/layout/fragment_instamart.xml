@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="10sp"
+    tools:context=".InstamartFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/relative_layout">
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:id="@+id/freeEssentialsImg"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/freesnack1"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtFreeEssentials"
+        android:text="FREE ESSENTIALS!"
+        android:layout_toRightOf="@id/freeEssentialsImg"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20sp"
+        android:fontFamily="monospace"
+        android:textColor="#E47820"
+        android:textStyle="bold"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtFreeEssentialsDesc"
+        android:layout_below="@id/txtFreeEssentials"
+        android:text="Get freebies with your order"
+        android:layout_toRightOf="@id/freeEssentialsImg"
+        android:layout_marginLeft="20sp"
+        android:fontFamily="monospace"
+        android:textColor="#7A3F0F"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtFreeEssentialsCode"
+        android:layout_below="@id/txtFreeEssentialsDesc"
+        android:text="Use Code: INSTAIT"
+        android:layout_toRightOf="@id/freeEssentialsImg"
+        android:layout_marginLeft="20sp"
+        android:fontFamily="monospace"
+        android:textColor="#7A3F0F"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtHotdeals"
+        android:layout_below="@id/freeEssentialsImg"
+        android:layout_marginTop="20sp"
+        android:text="Hot Deals"
+        android:textSize="15sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtSeeAllHotDeals"
+        android:layout_below="@id/freeEssentialsImg"
+        android:layout_marginTop="20sp"
+        android:layout_alignParentRight="true"
+        android:text="See All"
+        android:textColor="@color/SecondaryColor"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtDiscount"
+        android:layout_below="@id/txtHotdeals"
+        android:text="Upto 50% Off"
+        android:textColor="@color/black"/>
+
+    <ViewFlipper
+        android:id="@+id/image_slider"
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        android:layout_below="@id/txtDiscount"
+        android:layout_marginTop="30dp"
+        android:autoStart="true"
+        android:contextClickable="false"
+        android:flipInterval="2000"
+        android:inAnimation="@android:anim/slide_in_left"
+        android:outAnimation="@android:anim/slide_out_right">
+
+        <ImageView
+            android:id="@+id/autoImageSlider1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/homeslide1" />
+
+        <ImageView
+            android:id="@+id/autoImageSlider2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/homeslide2" />
+
+        <ImageView
+            android:id="@+id/autoImageSlider3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/homeslide3" />
+    </ViewFlipper>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtShopByCategory"
+        android:layout_below="@id/image_slider"
+        android:layout_marginTop="30sp"
+        android:text="Shop by category"
+        android:textSize="15sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/line1"
+            android:orientation="vertical"
+            android:layout_below="@id/txtShopByCategory"
+            android:layout_marginTop="20sp">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/InstamartFreshVegitablesImg"
+                    android:src="@drawable/pizza"
+                    android:background="@color/white"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtFreshVegitables"
+                    android:text="Fresh Vegitables"/>
+
+
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtExclusiveDeals"
+            android:layout_below="@id/line1"
+            android:layout_marginTop="30sp"
+            android:text="Exclusive Deals For You"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtSeeAllExclusiveDeals"
+            android:layout_below="@id/line1"
+            android:layout_marginTop="30sp"
+            android:layout_alignParentRight="true"
+            android:text="See All"
+            android:textColor="@color/SecondaryColor"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_height="150dp"
+            android:layout_width="150dp"
+            android:id="@+id/cardviewFood"
+            android:layout_below="@id/txtExclusiveDeals"
+            app:cardCornerRadius="25dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="10dp"
+            android:elevation="0dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:id="@+id/foodImage1"
+                    android:src="@drawable/food_icon" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/cardTextLadyFinger"
+                    android:layout_below="@id/foodImage1"
+                    android:text="Lady Finger (Bhindi)"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/cardTextProductWeight"
+                    android:layout_below="@id/cardTextLadyFinger"
+                    android:text="250 g x 4"
+                    android:textColor="@color/Grey"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/cardTexProductPrice"
+                    android:layout_below="@id/cardTextProductWeight"
+                    android:text="Rs. 59"
+                    android:textColor="@color/Grey"/>
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+</ScrollView>

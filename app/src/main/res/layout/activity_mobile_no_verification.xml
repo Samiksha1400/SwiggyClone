@@ -9,6 +9,7 @@
     android:background="@color/white"
     tools:context=".MobileNoVerification">
 
+
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="50dp"
@@ -37,6 +38,7 @@
         app:counterEnabled="true"
         app:counterMaxLength="10"
         app:prefixText="+91"
+        app:prefixTextColor="@color/black"
         app:startIconDrawable="@drawable/baseline_phone_24"
         app:startIconTint="@color/PrimaryColor">
 
@@ -44,21 +46,36 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="phone"
+            android:textStyle="bold"
+            android:textColor="@color/black"
             android:id="@+id/mobileNo"/>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:id="@+id/btn_get_otp"
-        android:layout_gravity="bottom"
-        android:layout_marginBottom="30dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/box_background"
-        android:hint="Get OTP"
-        android:textSize="20dp"
-        android:textColorHint="@color/white"
-        android:textStyle="bold"
-        android:onClick="getOTP"/>
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:id="@+id/btn_get_otp"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/box_background"
+            android:hint="Get OTP"
+            android:textSize="20dp"
+            android:textColorHint="@color/white"
+            android:textStyle="bold"
+            android:onClick="getOTP"/>
+
+        <ProgressBar
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:id="@+id/progressBarGetOtp"
+            android:backgroundTint="@color/PrimaryColor"
+            android:layout_gravity="center"
+            android:visibility="gone"/>
+
+    </FrameLayout>
 </RelativeLayout>

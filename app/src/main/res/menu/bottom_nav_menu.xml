@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/swiggy"
+        android:title="Swiggy"
+        android:icon="@drawable/swiggylogo"
+        android:iconTint="@color/black" />
+    <item
+        android:id="@+id/food"
+        android:title="Food"
+        android:icon="@drawable/icon_food"
+        android:iconTint="@color/black"/>
+    <item
+        android:id="@+id/instamart"
+        android:title="Instamart"
+        android:icon="@drawable/icon_instamart"
+        android:iconTint="@color/black"/>
+    <item
+        android:id="@+id/dineout"
+        android:title="Dineout"
+        android:icon="@drawable/icon_dineout"
+        android:iconTint="@color/black"/>
+    <item
+        android:id="@+id/genie"
+        android:title="Genie"
+        android:icon="@drawable/icon_genie"
+        android:iconTint="@color/black"/>
+</menu>
