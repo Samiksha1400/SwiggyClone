@@ -10,9 +10,11 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Point;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -22,8 +24,10 @@ import android.speech.RecognitionListener;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
 import android.speech.tts.TextToSpeech;
+import android.view.Display;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -61,6 +65,9 @@ public class Homepage extends AppCompatActivity
         handler = new Handler();
         handler.post(updateTextRunnable);
 
+        int screenWidth = getScreenWidth();
+        int screenHeight = getScreenHeight();
+
         //replaceFragment(new HomeFragment());
         getSupportFragmentManager().beginTransaction().replace(R.id.containerFragment,homeFragment).commit();
 
@@ -84,6 +91,22 @@ public class Homepage extends AppCompatActivity
         });
     }
 
+    private int getScreenWidth(){
+        WindowManager windowManager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
+        Display display = windowManager.getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        return size.x;
+    }
+
+    private int getScreenHeight(){
+        WindowManager windowManager = (WindowManager) getSystemService( Context.WINDOW_SERVICE);
+        Display display = windowManager.getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        return size.y;
+    }
+
     public void speakToText(View view)
     {
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
@@ -101,74 +124,6 @@ public class Homepage extends AppCompatActivity
         }
     }
 
-    /*private void initializeSpeechRecognizer() {
-        speechRecognizer = SpeechRecognizer.createSpeechRecognizer(this);
-    }
-
-    private void startListening() {
-        searchFood.setText("Listening...");
-
-        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
-        intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Listening...");
-
-        speechRecognizer.setRecognitionListener(new RecognitionListener() {
-            @Override
-            public void onReadyForSpeech(Bundle params) {
-                Toast.makeText(Homepage.this, "Hello", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onBeginningOfSpeech() {}
-
-            @Override
-            public void onRmsChanged(float rmsdB) {}
-
-            @Override
-            public void onBufferReceived(byte[] buffer) {}
-
-            @Override
-            public void onEndOfSpeech() {}
-
-            @Override
-            public void onError(int error) {
-                searchFood.setText("Error occurred. Please try again.");
-            }
-
-            @Override
-            public void onResults(Bundle results) {
-                ArrayList<String> matches = results.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
-                if (matches != null && !matches.isEmpty()) {
-                    String text = matches.get(0);
-                    searchFood.setText(text);
-                } else {
-                    searchFood.setText("No speech input.");
-                }
-            }
-
-            @Override
-            public void onPartialResults(Bundle partialResults) {}
-
-            @Override
-            public void onEvent(int eventType, Bundle params) {}
-        });
-
-        speechRecognizer.startListening(intent);
-    }
-
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == RECORD_AUDIO_PERMISSION_CODE) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                initializeSpeechRecognizer();
-            } else {
-                Toast.makeText(this, "Permission denied. Cannot proceed.", Toast.LENGTH_SHORT).show();
-            }
-        }
-    }*/
 
     //Update text according to time
     private Runnable updateTextRunnable = new Runnable()
@@ -227,68 +182,4 @@ public class Homepage extends AppCompatActivity
         fragmentTransaction.replace(R.id.containerFragment,fragment);
         fragmentTransaction.commit();
     }
-    /*public void microphone()
-    {
-        if (ActivityCompat.checkSelfPermission(this,PERMISSION_RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED)
-        {
-            Toast.makeText(this, "Permission Granted", Toast.LENGTH_SHORT).show();
-        }
-        else if (ActivityCompat.shouldShowRequestPermissionRationale(this,PERMISSION_RECORD_AUDIO))
-        {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setMessage("This app requires RECORD_AUDIO permission")
-                    .setTitle("Permission Required")
-                    .setCancelable(false)
-                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            ActivityCompat.requestPermissions(Homepage.this,new String[]{PERMISSION_RECORD_AUDIO},PERMISSION_REQ_CODE);
-                            dialogInterface.dismiss();
-                        }
-                    })
-                    .setNegativeButton("Cancel",((dialogInterface, i) -> dialogInterface.dismiss()));
-            builder.show();
-        }
-        else
-        {
-            ActivityCompat.requestPermissions(this,new String[]{PERMISSION_RECORD_AUDIO},PERMISSION_REQ_CODE);
-        }
-    }*/
-
-    /*@Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults)
-    {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == PERMISSION_REQ_CODE)
-        {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
-            {
-                Toast.makeText(this, "Permission Granted....", Toast.LENGTH_SHORT).show();
-            }
-            else if (!ActivityCompat.shouldShowRequestPermissionRationale(this,PERMISSION_RECORD_AUDIO))
-            {
-                AlertDialog.Builder builder =new AlertDialog.Builder(this);
-                builder.setMessage("This feature requires permission that you have denied."+"Please allow microphone permission")
-                        .setTitle("Permission Required")
-                        .setCancelable(false)
-                        .setNegativeButton("Cancel",((dialogInterface, i) -> dialogInterface.dismiss()))
-                        .setPositiveButton("Settings", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-                                Uri uri = Uri.fromParts("package",getPackageName(),null);
-                                intent.setData(uri);
-                                startActivity(intent);
-
-                                dialogInterface.dismiss();
-                            }
-                        });
-                builder.show();
-            }
-            else
-            {
-                microphone();
-            }
-        }
-    }*/
 }
