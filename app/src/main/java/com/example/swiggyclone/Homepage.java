@@ -100,7 +100,7 @@ public class Homepage extends AppCompatActivity
     }
 
     private int getScreenHeight(){
-        WindowManager windowManager = (WindowManager) getSystemService( Context.WINDOW_SERVICE);
+        WindowManager windowManager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
         Display display = windowManager.getDefaultDisplay();
         Point size = new Point();
         display.getSize(size);
