@@ -31,13 +31,14 @@ import java.util.Map;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link FoodFragment#newInstance} factory method to
+ * Use the {@link MenuDetailsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FoodFragment extends Fragment {
+public class MenuDetailsFragment extends Fragment {
+
     String url;
     private RecyclerView recyclerView;
-    private List<RestaurantDetails> restaurantDetails = new ArrayList<>();
+    private List<RestaurantDetails> menuDetails = new ArrayList<>();
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -48,7 +49,7 @@ public class FoodFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public FoodFragment() {
+    public MenuDetailsFragment() {
         // Required empty public constructor
     }
 
@@ -58,11 +59,11 @@ public class FoodFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment FoodFragment.
+     * @return A new instance of fragment MenuDetailsFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static FoodFragment newInstance(String param1, String param2) {
-        FoodFragment fragment = new FoodFragment();
+    public static MenuDetailsFragment newInstance(String param1, String param2) {
+        MenuDetailsFragment fragment = new MenuDetailsFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -83,13 +84,12 @@ public class FoodFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        //return inflater.inflate(R.layout.fragment_food, container, false);
+        //return inflater.inflate(R.layout.fragment_menu_details, container, false);
 
         View rootView = inflater.inflate(R.layout.fragment_food,container,false);
         recyclerView = rootView.findViewById(R.id.recyclerView);
         url = "https://837d2133-b203-4f5e-baf8-0a61e87e3c80.mock.pstmn.io/restaurants";
         RequestQueue queue = Volley.newRequestQueue(getActivity().getApplicationContext());
-
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
@@ -118,26 +118,48 @@ public class FoodFragment extends Fragment {
         return rootView;
     }
 
-    //Fetch the data from restaurant API
     private void fetchTheData(JSONArray jsonArray) {
-        for (int i = 0; i < jsonArray.length(); i++) {
+        /*for (int i = 0; i < jsonArray.length(); i++) {
             try {
-            JSONObject restaurant =jsonArray.getJSONObject(i);
-            restaurantDetails.add(new RestaurantDetails(
-                    restaurant.getString("name"),
-                    restaurant.get("ratings").toString(),
-                    restaurant.getString("cuisine"),
-                    restaurant.getString("address"),
-                    restaurant.getString("thumbnail")));
+                JSONObject restaurant =jsonArray.getJSONObject(i);
+                menuDetails.add(new RestaurantDetails(
+                        restaurant.getString("dish_name"),
+                        restaurant.get("ratings").toString(),
+                        restaurant.getString("price"),
+                        restaurant.getString("description"),
+                        restaurant.getString("image")));
             }
             catch (Exception e)
             {
                 e.printStackTrace();
                 Toast.makeText(getActivity(), "Restaurant Details Error", Toast.LENGTH_SHORT).show();
             }
+        }*/
+
+        for (int i = 0; i < jsonArray.length(); i++) {
+            try {
+                JSONObject restaurant = jsonArray.getJSONObject(i);
+                JSONArray menuArray = restaurant.getJSONArray("menu");
+
+                // Loop through each menu item for this restaurant
+                for (int j = 0; j < menuArray.length(); j++) {
+                    JSONObject menuItem = menuArray.getJSONObject(j);
+
+                    menuDetails.add(new RestaurantDetails(
+                            menuItem.getString("dish_name"),
+                            menuItem.getString("rating"),
+                            menuItem.getString("price"),
+                            menuItem.getString("description"),
+                            menuItem.getString("image")
+                    ));
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                Toast.makeText(getActivity(), "Error in fetching menu details", Toast.LENGTH_SHORT).show();
+            }
         }
 
-        RestaurantDetailsAdapter adapter = new RestaurantDetailsAdapter(restaurantDetails,getContext());
+        RestaurantDetailsAdapter adapter = new RestaurantDetailsAdapter(menuDetails,getContext());
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
