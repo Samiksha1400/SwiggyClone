@@ -1,5 +1,6 @@
 package com.example.swiggyclone;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -19,7 +20,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.swiggyclone.adapter.MenuDetailsAdapter;
 import com.example.swiggyclone.adapter.RestaurantDetailsAdapter;
+import com.example.swiggyclone.model.MenuDetails;
 import com.example.swiggyclone.model.RestaurantDetails;
 
 import org.json.JSONArray;
@@ -38,7 +41,7 @@ public class MenuDetailsFragment extends Fragment {
 
     String url;
     private RecyclerView recyclerView;
-    private List<RestaurantDetails> menuDetails = new ArrayList<>();
+    private List<MenuDetails> menuDetails = new ArrayList<>();
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -119,23 +122,6 @@ public class MenuDetailsFragment extends Fragment {
     }
 
     private void fetchTheData(JSONArray jsonArray) {
-        /*for (int i = 0; i < jsonArray.length(); i++) {
-            try {
-                JSONObject restaurant =jsonArray.getJSONObject(i);
-                menuDetails.add(new RestaurantDetails(
-                        restaurant.getString("dish_name"),
-                        restaurant.get("ratings").toString(),
-                        restaurant.getString("price"),
-                        restaurant.getString("description"),
-                        restaurant.getString("image")));
-            }
-            catch (Exception e)
-            {
-                e.printStackTrace();
-                Toast.makeText(getActivity(), "Restaurant Details Error", Toast.LENGTH_SHORT).show();
-            }
-        }*/
-
         for (int i = 0; i < jsonArray.length(); i++) {
             try {
                 JSONObject restaurant = jsonArray.getJSONObject(i);
@@ -145,7 +131,7 @@ public class MenuDetailsFragment extends Fragment {
                 for (int j = 0; j < menuArray.length(); j++) {
                     JSONObject menuItem = menuArray.getJSONObject(j);
 
-                    menuDetails.add(new RestaurantDetails(
+                    menuDetails.add(new MenuDetails(
                             menuItem.getString("dish_name"),
                             menuItem.getString("rating"),
                             menuItem.getString("price"),
@@ -159,7 +145,7 @@ public class MenuDetailsFragment extends Fragment {
             }
         }
 
-        RestaurantDetailsAdapter adapter = new RestaurantDetailsAdapter(menuDetails,getContext());
+        MenuDetailsAdapter adapter = new MenuDetailsAdapter(menuDetails,getContext());
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();

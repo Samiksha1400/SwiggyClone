@@ -7,10 +7,10 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="190dp"
-        android:layout_margin="10dp">
+        android:layout_height="220dp"
+        android:layout_margin="5dp">
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:id="@+id/dishName"
             android:layout_marginTop="10dp"
@@ -39,7 +39,7 @@
             android:layout_below="@id/dishName"
             android:layout_toRightOf="@id/rating"
             android:layout_marginTop="10dp"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="8dp"
             android:src="@drawable/baseline_stars_24"/>
 
         <TextView
@@ -54,38 +54,61 @@
             android:textColor="@color/black"/>
 
         <TextView
+            android:id="@+id/quantity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/description"
             android:layout_below="@id/price"
             android:layout_marginTop="10dp"
             android:layout_marginStart="15dp"
+            android:text="1"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/description"
+            android:layout_below="@id/quantity"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="15dp"
             android:text="Description"
-            android:textSize="20sp"
-            android:textColor="@color/black"/>
+            android:textSize="15sp"
+            android:textColor="@color/Grey"/>
 
         <ImageView
-            android:layout_width="160dp"
+            android:layout_width="170dp"
             android:layout_height="130dp"
             android:layout_alignParentEnd="true"
             android:id="@+id/dishImg"
             android:background="@color/white"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
             android:src="@drawable/ic_launcher_background"
-            android:layout_gravity="center"/>
+            android:scaleType="centerCrop"/>
+
+        <Button
+            android:id="@+id/addBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dishImg"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="45dp"
+            android:layout_alignParentEnd="true"
+            android:backgroundTint="#E9E1E1"
+            android:text="ADD"
+            android:textColor="#092F04"/>
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="20dp"
+            android:layout_height="10dp"
             android:id="@+id/view"
-            android:layout_below="@id/description"/>
+            android:layout_below="@id/addBtn"/>
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:id="@+id/viewline"
-            android:background="@color/Grey"
+            android:background="#625D5D"
             android:layout_below="@id/view"/>
 
     </RelativeLayout>
