@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Profile">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:id="@+id/imgBackArrow"
+            android:src="@drawable/baseline_arrow_back_24"
+            android:onClick="backBtn"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/getName"
+            android:text="Samiksha Kudachikar"
+            android:layout_below="@id/imgBackArrow"
+            android:layout_marginTop="15sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/clickableEditText"
+            android:text="EDIT"
+            android:textColor="@color/PrimaryColor"
+            android:textStyle="bold"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@id/imgBackArrow"
+            android:layout_marginTop="15sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/getMobileNo"
+            android:text="+91 - 1234567892"
+            android:layout_below="@id/getName"
+            android:layout_marginTop="10sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="."
+            android:id="@+id/spaceWithDot"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_below="@id/getName"
+            android:layout_marginTop="8sp"
+            android:layout_toRightOf="@id/getMobileNo"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="abc@gmail.com"
+            android:id="@+id/getEmailId"
+            android:layout_below="@id/getName"
+            android:layout_marginTop="10sp"
+            android:layout_toRightOf="@id/spaceWithDot"
+            />
+
+
+    </RelativeLayout>
+
+</ScrollView>

@@ -3,6 +3,10 @@
     <style name="Base.Theme.SwiggyClone" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+        <item name="colorPrimary">@color/PrimaryColor</item>
+        <item name="colorPrimaryVariant">@color/SecondaryColor</item>
+        <item name="colorOnPrimary">@color/white</item>
     </style>
 
     <style name="Theme.SwiggyClone" parent="Base.Theme.SwiggyClone" />
