@@ -1,5 +1,6 @@
 package com.example.swiggyclone;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -55,6 +56,12 @@ public class AddToCartActivity extends AppCompatActivity {
         //Back Button
         ImageButton backbutton = findViewById(R.id.backButton);
         backbutton.setOnClickListener(view -> onBackPressed());
+
+        Button proceedToPayButton = findViewById(R.id.proceedToPayButton);
+        proceedToPayButton.setOnClickListener(View ->{
+            Intent intent= new Intent(AddToCartActivity.this, PaymentDetails.class);
+            startActivity(intent);
+        });
     }
 
     private void updateTotalCost() {
