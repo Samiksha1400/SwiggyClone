@@ -23,7 +23,8 @@ public class AddToCartActivity extends AppCompatActivity {
     private List<CartItem> cartItemList;
     private TextView totalAmount, gstAmount, deliveryFee, grandTotal;
     private double gstRate = 0.05; // 5% GST
-    private double deliveryServiceFee = 30.0; // example delivery fee
+    private double deliveryServiceFee = 30.0;
+    private double grandTotalAmount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,9 +58,11 @@ public class AddToCartActivity extends AppCompatActivity {
         ImageButton backbutton = findViewById(R.id.backButton);
         backbutton.setOnClickListener(view -> onBackPressed());
 
+        //Proceed-To-Pay Button
         Button proceedToPayButton = findViewById(R.id.proceedToPayButton);
         proceedToPayButton.setOnClickListener(View ->{
             Intent intent= new Intent(AddToCartActivity.this, PaymentDetails.class);
+            intent.putExtra("totalPaymentAmount",grandTotalAmount);
             startActivity(intent);
         });
     }
