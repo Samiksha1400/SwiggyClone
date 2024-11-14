@@ -16,20 +16,21 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class PaymentDetails extends AppCompatActivity implements PaymentResultListener {
+    private double totalPaymentAmount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_payment_details);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+        /*ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
-        });
+        });*/
 
         Checkout.preload(getApplicationContext());
-
+        totalPaymentAmount = getIntent().getDoubleExtra("totalPaymentAmount",0.0);
         startPayment();
     }
 
@@ -42,7 +43,7 @@ public class PaymentDetails extends AppCompatActivity implements PaymentResultLi
             jsonObject.put("name","Swiggy Clone");
             jsonObject.put("description","Order Payment");
             jsonObject.put("currency","INR");
-            jsonObject.put("amount","100");
+            jsonObject.put("amount",totalPaymentAmount*100);
 
             checkout.open(this,jsonObject);
         } catch (JSONException e)
