@@ -40,9 +40,9 @@ public class PaymentDetails extends AppCompatActivity implements PaymentResultLi
         JSONObject jsonObject = new JSONObject();
         try {
             jsonObject.put("name","Swiggy Clone");
-            jsonObject.put("description","Order PAyment");
+            jsonObject.put("description","Order Payment");
             jsonObject.put("currency","INR");
-            jsonObject.put("amount","10000");
+            jsonObject.put("amount","100");
 
             checkout.open(this,jsonObject);
         } catch (JSONException e)
